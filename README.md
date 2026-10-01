@@ -1,2 +1,2 @@
 # OmniSolver
-OmniSolver: a web-based calculation tool for engineers
+OmniSolver: a calculator for engineers
