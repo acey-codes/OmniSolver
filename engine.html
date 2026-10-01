@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data & Calculation Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-screen">
+        <div class="dropdown">
+            <button class="dropdown-btn" onclick="toggleMenu()">Structure Type</button>
+            <div class="dropdown-content" id="dropdownMenu">
+                <a href="#" onclick="selectStructure('Beam')">Beam</a>
+                <a href="#" onclick="selectStructure('Bunker')">Bunker</a>
+                <a href="#" onclick="selectStructure('Fence')">Fence</a>
+                <a href="#" onclick="selectStructure('Other')">Other</a>
+            </div>
+        </div>
+
+        <div class="input-wrapper">
+            <div class="input-label">Length (L):</div>
+            <input type="number" id="length" class="input-field" placeholder="Enter L">
+        </div>
+
+        <div class="input-wrapper">
+            <div class="input-label">Load (P):</div>
+            <input type="number" id="loadP" class="input-field" placeholder="Enter P">
+        </div>
+
+        <div class="input-wrapper">
+            <div class="input-label">Load (Q):</div>
+            <input type="number" id="loadQ" class="input-field" placeholder="Enter Q">
+        </div>
+
+        <div class="input-wrapper">
+            <div class="input-label">Steel:</div>
+            <input type="number" id="steel" class="input-field" placeholder="Enter R">
+        </div>
+
+        <div class="input-wrapper">
+            <div class="input-label">Quantity:</div>
+            <input type="number" id="quantity" class="input-field" placeholder="Enter Quantity">
+        </div>
+
+        <button class="calculate-btn" onclick="calculate()">Calculate</button>
+
+        <!-- Назад вынесена отдельно, margin-top больше -->
+        <div class="back-wrapper">
+            <a href="index.html" class="back-button">← Back</a>
+        </div>
+
+        <div id="waitScreen" class="wait-screen" style="display:none;">
+            <div class="wait-box"><p>Wait...</p></div>
+        </div>
+
+        <div id="resultScreen" class="result-screen" style="display:none;">
+    <div class="result-box">
+        <h2>Result</h2>
+        <p id="verdictText" class="verdict">Pass</p>
+        <div class="result-item">
+    <span class="result-label">Mmax:</span>
+    <span class="result-value" id="mmaxValue">0</span>
+</div>
+<div class="result-item">
+    <span class="result-label">Qmax:</span>
+    <span class="result-value" id="qmaxValue">0</span>
+</div>
+<div class="result-item">
+    <span class="result-label">Stress:</span>
+    <span class="result-value" id="stressValue">0</span>
+</div>
+<div class="result-item">
+    <span class="result-label">Allowable Stress:</span>
+    <span class="result-value" id="allowableValue">0</span>
+</div>
+        <button class="save-btn" onclick="saveResult()">Save</button>
+        <button class="no-btn" onclick="closeResult()">No</button>
+            </div> <!-- закрывает result-box -->
+        </div> <!-- закрывает resultScreen -->
+    </div> <!-- закрывает main-screen -->
+    <script src="script.js"></script>
+</body>
+</html>

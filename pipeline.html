@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>System Engineering & Pipeline</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="main-screen">
+    <button class="calculate-btn" onclick="runPipeline()">Run pipeline</button>
+<div class="saved-list" id="savedList"></div>
+
+    <div id="waitScreen" class="wait-screen" style="display:none;">
+        <div class="wait-box"><p>Wait...</p></div>
+    </div>
+
+    <div id="resultScreen" class="result-screen" style="display:none;">
+        <div class="result-box">
+            <h2>Result</h2>
+            <p id="verdictText" class="verdict">Pass</p>
+            <div class="result-item">
+                <span class="result-label">Mmax:</span>
+                <span class="result-value" id="mmaxValue">0</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Qmax:</span>
+                <span class="result-value" id="qmaxValue">0</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Stress:</span>
+                <span class="result-value" id="stressValue">0</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Allowable Stress:</span>
+                <span class="result-value" id="allowableValue">0</span>
+            </div>
+            <button class="save-btn" onclick="saveResult()">Save</button>
+            <button class="no-btn" onclick="closeResult()">No</button>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button">← Back</a>
+</div>
+<script>
+    loadSavedCalculations();
+</script>
+</body>
+</html>

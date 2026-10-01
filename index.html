@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniSolver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<script type="text/javascript">
+function googleTranslateElementInit() 
+{new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ru', autoDisplay: false}, 'google_translate_element');}
+
+function translatePage(lang) 
+{var select = document.querySelector('.goog-te-combo');
+  if (select) {
+    select.value = lang;
+    select.dispatchEvent(new Event('change'));}}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+    <div class="main-screen">
+        <div class="lang-switch">
+    <div id="google_translate_element" style="display:none;"></div>
+    <button onclick="translatePage('en')">en</button> | 
+    <button onclick="translatePage('ru')">ru</button>
+</div>
+
+        <h1 class="logo notranslate">OmniSolver</h1>
+
+    <a href="engine.html" class="block block-engine"> 
+        <p>Data &<br>Calculation<br>Engine</p>
+    </a>
+
+    <a href="pipeline.html" class="block block-pipeline"> 
+        <p>System<br>Engineering<br>& Pipeline</p>
+    </a>
+
+        <div class="footer">Built for Engineers</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
