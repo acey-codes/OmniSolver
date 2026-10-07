@@ -23,18 +23,18 @@ function calculate()
         {alert("Введите все данные!");
         return;}
 
-    // Показываем окно ожидания
+    // Окно ожидания
     document.getElementById("waitScreen").style.display = "flex";
 
-    // Имитация задержки (как будто программа считает)
+    // Задержка (типо программа считает)
     setTimeout(function() 
     {// Считаем формулу
         let stress = P / (Q * steel);
-        let allowable = 24; // Допустимое напряжение (пример)
+        let allowable = 24; // Пишет допустимое напряжение 
         let mmax = P * 1.5; // Пример
         let qmax = Q * 1.2; // Пример
 
-        // Заполняем окно результата
+        // Заполнить окно результата
         document.getElementById("mmaxValue").innerText = mmax.toFixed(2);
         document.getElementById("qmaxValue").innerText = qmax.toFixed(2);
         document.getElementById("stressValue").innerText = stress.toFixed(2);
@@ -44,11 +44,11 @@ function calculate()
             {document.getElementById("verdictText").innerText = "Pass";} 
             else {document.getElementById("verdictText").innerText = "Fail";}
 
-        // Показываем окно результата
+        // Само окно результата
         document.getElementById("waitScreen").style.display = "none";
         document.getElementById("resultScreen").style.display = "flex";}, 
         1500); 
-        // 1.5 секунды ожидания 
+        // 1.5 секунды ждать
         }
 
 // Кнопка Save
@@ -57,13 +57,13 @@ function saveResult()
     let Q = document.getElementById("loadQ").value;
     let steel = document.getElementById("steel").value;
 
-    // Берём уже сохранённые расчёты из памяти или создаём новый список
+    // Взять уже сохранённые расчёты из памяти или создать новый список
     let saved = JSON.parse(localStorage.getItem("savedCalculations") || "[]");
 
-    // Добавляем новый расчёт
+    // Добавить новый расчёт
     saved.push({ P: P, Q: Q, steel: steel });
 
-    // Сохраняем обратно в память
+    // Сохранить обратно в память
     localStorage.setItem("savedCalculations", JSON.stringify(saved));
 
     alert("Результат сохранён!");
@@ -76,7 +76,7 @@ function closeResult()
 // Загрузка сохранённых расчётов на странице pipeline
 function loadSavedCalculations() 
 {let savedList = document.getElementById("savedList");
-    if (!savedList) return; // если мы не на странице pipeline, выходим
+    if (!savedList) return; // если не на странице pipeline, выйти
 
     let saved = JSON.parse(localStorage.getItem("savedCalculations") || "[]");
 
@@ -87,12 +87,12 @@ function loadSavedCalculations()
 
         div.onclick = function() 
 
-        { // Сохраняем выбранный расчёт в память как "выбранный"
+        { // Сохранить выбранный расчёт в память как "выбранный"
             localStorage.setItem("selectedCalculation", JSON.stringify(item));};
 
         savedList.appendChild(div);});}
 
-// Запуск конвейера
+// Запуск конвейера расчёта тип
 function runPipeline() 
 {let selected = JSON.parse(localStorage.getItem("selectedCalculation") || "null");
 
@@ -120,5 +120,5 @@ function runPipeline()
         document.getElementById("waitScreen").style.display = "none";
         document.getElementById("resultScreen").style.display = "flex";}, 500);}
 
-// Загружаем расчёты при открытии страницы
+// Загрузить расчёты при открытии страницы
 window.onload = loadSavedCalculations;
