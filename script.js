@@ -57,7 +57,7 @@ function saveResult()
     let Q = document.getElementById("loadQ").value;
     let steel = document.getElementById("steel").value;
 
-    // Взять уже сохранённые расчёты из памяти или создать новый список
+    // Взять уже сохранённые расчёты из памяти/Создать новый список
     let saved = JSON.parse(localStorage.getItem("savedCalculations") || "[]");
 
     // Добавить новый расчёт
@@ -87,12 +87,12 @@ function loadSavedCalculations()
 
         div.onclick = function() 
 
-        { // Сохранить выбранный расчёт в память как "выбранный"
+        { // Сохранить выбранный расчёт в память 
             localStorage.setItem("selectedCalculation", JSON.stringify(item));};
 
         savedList.appendChild(div);});}
 
-// Запуск конвейера расчёта тип
+// Короче запуск конвейера расчёта 
 function runPipeline() 
 {let selected = JSON.parse(localStorage.getItem("selectedCalculation") || "null");
 
